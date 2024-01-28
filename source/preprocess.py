@@ -22,7 +22,16 @@ print(train_data_head)
 print(test_data_head)
 print(sample_submission_head)
 
+# Checking for missing values in both training and test datasets
+missing_values_train = train_data.isnull().sum()
+missing_values_test = test_data.isnull().sum()
 
+print(missing_values_train)
+print(missing_values_test)
+
+
+# Imputing missing values
+# For numerical attribute 'Item_Weight', we use the mean to impute missing values
 
 
 
