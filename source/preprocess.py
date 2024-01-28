@@ -31,7 +31,10 @@ print(missing_values_test)
 
 
 # Imputing missing values
+#Replace 'Item weight' with mean value
 # For numerical attribute 'Item_Weight', we use the mean to impute missing values
+train_data['Item_Weight'] = train_data['Item_Weight'].fillna(train_data['Item_Weight'].mean())
+test_data['Item_Weight'] = test_data['Item_Weight'].fillna(test_data['Item_Weight'].mean())
 
 
 
