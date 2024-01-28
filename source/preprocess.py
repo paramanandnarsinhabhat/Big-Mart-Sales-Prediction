@@ -82,6 +82,17 @@ test_data_processed = preprocessor.transform(test_data)
 print(train_data_processed.shape)
 print(test_data_processed.shape)
 
+import pandas as pd
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import mean_squared_error
+import numpy as np
+import tensorflow as tf
+from tensorflow import keras
+
+
+
 
 
 
