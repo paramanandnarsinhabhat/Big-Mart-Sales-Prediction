@@ -56,4 +56,11 @@ print(imputed_missing_values_test)
 
 print('Missing values have been replaced by mean and mode respectively')
 
+#Categorical columns include object
+categorical_cols = train_data.select_dtypes(include=['object']).columns
+
+print('Categorical columns',categorical_cols)
+#numerical_cols = train_data.select_dtypes(include=['float64', 'int64']).columns
+
+
 
