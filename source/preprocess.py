@@ -60,7 +60,19 @@ print('Missing values have been replaced by mean and mode respectively')
 categorical_cols = train_data.select_dtypes(include=['object']).columns
 
 print('Categorical columns',categorical_cols)
-#numerical_cols = train_data.select_dtypes(include=['float64', 'int64']).columns
 
 print(train_data.dtypes)
+
+numerical_cols = train_data.select_dtypes(include=['float64', 'int64']).columns
+
+print('Numerical columns',numerical_cols)
+
+#Removing the target variable from the list of numerical columns:
+numerical_cols = numerical_cols.drop('Item_Outlet_Sales')
+
+preprocessor = ColumnTransformer(
+    transformers=[
+        ('num', StandardScaler(), numerical_cols),
+        ('cat', OneHotEncoder(handle_unknown='ignore'), categorical_cols)
+    ])
 
