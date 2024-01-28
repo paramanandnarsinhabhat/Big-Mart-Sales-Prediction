@@ -62,5 +62,5 @@ categorical_cols = train_data.select_dtypes(include=['object']).columns
 print('Categorical columns',categorical_cols)
 #numerical_cols = train_data.select_dtypes(include=['float64', 'int64']).columns
 
-
+print(train_data.dtypes)
 
