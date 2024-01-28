@@ -1,67 +1,66 @@
+# Big Mart Sales Prediction Project Documentation
 
-# Big Mart Sales Prediction
+## Executive Summary
 
-## Overview
+The Big Mart Sales Prediction initiative is a sophisticated analytical model designed to forecast product sales across various Big Mart retail outlets. The project encompasses rigorous data preprocessing techniques, the deployment of an advanced neural network utilizing TensorFlow and Keras frameworks, and the subsequent execution of predictive modeling. This comprehensive strategy ensures a streamlined process from data ingestion to prediction output.
 
-This project aims to predict the sales of products in various Big Mart outlets. It involves data preprocessing, implementing a neural network model using TensorFlow and Keras, and predicting the sales based on test data. The project is structured to handle data processing, model training, and prediction generation seamlessly.
+## Directory Structure
 
-## File Structure
+- `data/`: This directory hosts the datasets essential for the analysis and modeling.
+  - `sample_submission_hP4II7x.csv`: A template showcasing the expected format for submissions.
+  - `test_FewQE9B.csv`: The test dataset, comprising features devoid of the target variable (sales).
+  - `train_XnW6LSF.csv`: The training dataset, inclusive of both the predictive features and target variable.
+- `notebook/`: Contains the Jupyter notebooks that detail the preprocessing and model training.
+  - `preprocess_retail.ipynb`: A Jupyter notebook that outlines the data preprocessing and model training pipeline.
+- `source/`: Includes scripts that perform data processing.
+  - `preprocess.py`: A Python script designated for the preprocessing of data.
+- `submission_file/`: Contains the results of the predictive model.
+  - `submission.csv`: The file that records the predicted sales figures.
+- `.gitignore`: A file that lists the entities to be omitted from version control.
+- `requirements.txt`: A manifest file listing all dependencies required by the project.
 
-- `data/`
-  - `sample_submission_hP4II7x.csv` - A sample submission file in the correct format.
-  - `test_FewQE9B.csv` - The test dataset containing features without sales figures.
-  - `train_XnW6LSF.csv` - The training dataset with both features and sales figures.
-- `notebook/`
-  - `preprocess_retail.ipynb` - Jupyter notebook containing data preprocessing steps and model training.
-- `source/`
-  - `preprocess.py` - Python script for data preprocessing.
-- `submission_file/`
-  - `submission.csv` - The output file containing the predicted sales.
-- `.gitignore` - Specifies intentionally untracked files to ignore.
-- `requirements.txt` - Contains all the necessary packages to be installed.
-
-## Requirements
+## Prerequisites
 
 - pandas==1.4.2
 - scikit-learn==1.1.1
 - numpy==1.22.3
 - tensorflow==2.9.1
 
-## Setup
+## Installation Instructions
 
-Ensure that you have Python installed on your system. You can install all dependencies by running:
+Prior to execution, ensure Python is correctly installed on your local machine. Install the necessary dependencies via the following command:
 
-
+```bash
 pip install -r requirements.txt
+```
 
+## Operational Guide
 
-## Running the Code
+1. Position the datasets within the `data/` directory prior to initiating the model.
+2. Execute the data preprocessing script to sanitize and format the data appropriately:
 
-1. First, ensure that the datasets are placed in the `data/` directory.
-2. Run the preprocessing script to clean and transform the data:
-
-
+   ```bash
    python source/preprocess.py
+   ```
 
+3. Navigate to the `preprocess_retail.ipynb` notebook within a Jupyter environment to commence model training:
 
-3. Open the `preprocess_retail.ipynb` notebook in a Jupyter environment to train the model:
-
-
+   ```bash
    jupyter notebook notebook/preprocess_retail.ipynb
+   ```
 
+   Progress through the notebook by executing all cells to train the model and generate the predictive outcomes.
 
-   Execute all cells in the notebook to train the model and generate predictions.
+4. Post-analysis, the model's sales predictions are systematically stored in the `submission.csv` file within the `submission_file/` directory.
 
-4. The predicted sales are saved in `submission.csv` in the `submission_file/` directory. 
+## Model Architecture
 
-## Model Details
+The constructed model is a multilayer perceptron (MLP), a type of feedforward neural network, with the following configuration:
 
-The model is a simple feedforward neural network with ReLU activation in the hidden layers and the output layer. The architecture is as follows:
+- **Input Layer**: Corresponds to the input feature count.
+- **Hidden Layer 1**: Comprises 64 neurons, activated by the ReLU function.
+- **Hidden Layer 2**: Contains 32 neurons, also utilizing ReLU activation.
+- **Output Layer**: Consists of a single neuron with ReLU activation to ensure the generation of non-negative sales values.
 
-- Input Layer: Matches the number of features
-- Hidden Layer 1: 64 neurons with ReLU activation
-- Hidden Layer 2: 32 neurons with ReLU activation
-- Output Layer: 1 neuron with ReLU activation (to ensure non-negative predictions)
-
-The model is compiled with the Adam optimizer and mean squared error loss function. It is trained for 50 epochs with a validation split of 20%.
+The model's compilation leverages the Adam optimization algorithm and is quantified using the mean squared error loss function. It undergoes a training regime spanning 50 epochs with a validation split of 20% to ensure robust performance.
 
