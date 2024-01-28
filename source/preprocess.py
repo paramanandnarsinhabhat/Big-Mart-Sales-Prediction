@@ -91,6 +91,20 @@ import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 
+# Define the neural network architecture
+model = keras.Sequential([
+    # Input layer: Number of neurons equal to the number of features after preprocessing
+    keras.layers.Input(shape=(train_data_processed.shape[1],)),
+    
+    # Add hidden layers with ReLU activation
+    keras.layers.Dense(units=64, activation='relu'),
+    keras.layers.Dense(units=32, activation='relu'),
+    
+    # Output layer: Since this seems to be a regression problem, use a linear activation function
+    keras.layers.Dense(units=1, activation='linear')
+])
+
+
 
 
 
