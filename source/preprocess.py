@@ -76,7 +76,12 @@ preprocessor = ColumnTransformer(
         ('num', StandardScaler(), numerical_cols),
         ('cat', OneHotEncoder(handle_unknown='ignore'), categorical_cols)
     ])
+train_data_processed = preprocessor.fit_transform(train_data.drop('Item_Outlet_Sales', axis=1))
+test_data_processed = preprocessor.transform(test_data)
 
+print(train_data_processed.shape)
+
+print(test_data_processed.shape)
 
 
 
