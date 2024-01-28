@@ -70,9 +70,14 @@ print('Numerical columns',numerical_cols)
 #Removing the target variable from the list of numerical columns:
 numerical_cols = numerical_cols.drop('Item_Outlet_Sales')
 
+#
 preprocessor = ColumnTransformer(
     transformers=[
         ('num', StandardScaler(), numerical_cols),
         ('cat', OneHotEncoder(handle_unknown='ignore'), categorical_cols)
     ])
+
+
+
+
 
