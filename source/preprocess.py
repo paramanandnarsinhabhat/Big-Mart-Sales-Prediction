@@ -1,4 +1,8 @@
 import pandas as pd
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import StandardScaler
+
 
 
 # Load the training, test, and sample submission data
