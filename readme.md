@@ -33,7 +33,7 @@ Ensure that you have Python installed on your system. You can install all depend
 
 
 pip install -r requirements.txt
-```
+
 
 ## Running the Code
 
