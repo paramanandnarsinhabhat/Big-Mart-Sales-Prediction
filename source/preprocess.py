@@ -80,8 +80,9 @@ train_data_processed = preprocessor.fit_transform(train_data.drop('Item_Outlet_S
 test_data_processed = preprocessor.transform(test_data)
 
 print(train_data_processed.shape)
-
 print(test_data_processed.shape)
+
+
 
 
 
