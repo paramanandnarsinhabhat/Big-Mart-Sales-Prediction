@@ -36,5 +36,20 @@ print(missing_values_test)
 train_data['Item_Weight'] = train_data['Item_Weight'].fillna(train_data['Item_Weight'].mean())
 test_data['Item_Weight'] = test_data['Item_Weight'].fillna(test_data['Item_Weight'].mean())
 
+# For categorical attribute 'Outlet_Size', we use the mode (most frequent value) to impute missing values
+mode_outlet_size_train = train_data['Outlet_Size'].mode()[0]
+mode_outlet_size_test = test_data['Outlet_Size'].mode()[0]
+
+train_data['Outlet_Size'].fillna(mode_outlet_size_train,inplace=True)
+test_data['Outlet_Size'].fillna(mode_outlet_size_test,inplace=True)
+
+# Check if the missing values are imputed for both train and test data
+imputed_missing_values_train = train_data.isnull().sum()
+imputed_missing_values_test = test_data.isnull().sum()
+
+print(imputed_missing_values_train)
+print(imputed_missing_values_test)
+
+print('Missing values have been replaced by mean and mode respectively')
 
 
